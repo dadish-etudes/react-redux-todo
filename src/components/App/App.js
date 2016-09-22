@@ -14,6 +14,14 @@ import Header from '../Header';
 import Feedback from '../Feedback';
 import Footer from '../Footer';
 
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import todoApp from '../TodoApp/reducers';
+import TodoApp from '../TodoApp/components/App';
+
+let store = createStore(todoApp)
+
 class App extends Component {
 
   static propTypes = {
@@ -54,8 +62,9 @@ class App extends Component {
     return !this.props.error ? (
       <div>
         <Header />
-        {this.props.children}
-        <Feedback />
+        <Provider store={store}>
+          <TodoApp />
+        </Provider>,
         <Footer />
       </div>
     ) : this.props.children;
