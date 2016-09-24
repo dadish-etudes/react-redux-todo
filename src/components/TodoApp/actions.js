@@ -5,7 +5,10 @@
 export const addTodo = (text) => {
 	return {
 		type: 'ADD_TODO',
-		payload: text,
+		payload: {
+			id: Date.now(),
+			text
+		},
 	}
 }
 

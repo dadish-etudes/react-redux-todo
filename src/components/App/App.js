@@ -7,17 +7,20 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { Component, PropTypes } from 'react';
-import emptyFunction from 'fbjs/lib/emptyFunction';
-import s from './App.css';
-import Header from '../Header';
-import Feedback from '../Feedback';
-import Footer from '../Footer';
+import React, { Component, PropTypes } from 'react'
+import emptyFunction from 'fbjs/lib/emptyFunction'
+import s from './App.css'
+import Header from '../Header'
+import Feedback from '../Feedback'
+import Footer from '../Footer'
 
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import TodoApp from '../TodoApp/components/App';
-import store from '../TodoApp/store';
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import TodoApp from '../TodoApp/components/App'
+import configureStore from '../TodoApp/configureStore'
+import DevTools from '../TodoApp/containers/DevTools'
+
+const store = configureStore();
 
 class App extends Component {
 
@@ -58,6 +61,7 @@ class App extends Component {
   render() {
     return !this.props.error ? (
       <div>
+        <DevTools store={store} />
         <Header />
         <Provider store={store}>
           <TodoApp />
@@ -69,4 +73,4 @@ class App extends Component {
 
 }
 
-export default App;
+export default App
