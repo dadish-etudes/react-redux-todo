@@ -16,11 +16,8 @@ import Footer from '../Footer';
 
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import todoApp from '../TodoApp/reducers';
 import TodoApp from '../TodoApp/components/App';
-
-let store = createStore(todoApp)
+import store from '../TodoApp/store';
 
 class App extends Component {
 

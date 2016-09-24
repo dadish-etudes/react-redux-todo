@@ -2,26 +2,34 @@
  * Todo Actions
  */
 
-let nextTodoId = 0;
-
 export const addTodo = (text) => {
 	return {
 		type: 'ADD_TODO',
-		id: nextTodoId += 1,
-		text,
+		payload: text,
 	}
 }
 
 export const setVisibilityFilter = (filter) => {
 	return {
 		type: 'SET_VISIBILITY_FILTER',
-		filter,
+		payload: filter,
 	}
 }
 
-export const toggleTodo = (id) => {
+export const updateTodo = (id, property, value) => {
 	return {
-		type: 'TOGGLE_TODO',
-		id,
+		type: 'UPDATE_TODO',
+		payload: {
+			id,
+			property,
+			value
+		}
+	}
+}
+
+export const deleteTodo = (id) => {
+	return {
+		type: 'DELETE_TODO',
+		payload: id
 	}
 }

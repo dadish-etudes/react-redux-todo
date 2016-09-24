@@ -6,6 +6,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
+const style = {
+	width: '100%'
+}
+
 let AddTodo = ({ dispatch }) => {
 	let input
 	return (

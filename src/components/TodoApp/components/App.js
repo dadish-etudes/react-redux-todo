@@ -7,9 +7,14 @@ import Footer from './Footer';
 import AddTodo from '../containers/AddTodo';
 import VisibleTodoList from '../containers/VisibleTodoList';
 
+const style = {
+	margin: 'auto',
+	maxWidth: '600px'
+};
+
 const App = () => {
 	return (
-		<div>
+		<div style={style}>
 			<AddTodo />
 			<VisibleTodoList />
 			<Footer />
